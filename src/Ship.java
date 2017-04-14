@@ -17,17 +17,35 @@ public class Ship {
     crew = new ArrayList<>();
   }
 
+  public ArrayList<Pirate> fillShip(){
+    int mountOfPirates = (int) (Math.random() * 5) + 2;
+    for (int i = 0 ; i < mountOfPirates ; ++i){
+      Pirate pirate = new Pirate();
+      crew.add(pirate);
+    }
+    return crew;
+  }
+
   @Override
   public String toString() {
-    return "Ship{" +
-            "name='" + name + '\'' +
-            ", rumStorage=" + rumStorage +
-            ", crew=" + crew +
-            '}';
+    int numberOfAlivePirates = 0;
+    for (int i = 1; i < crew.size(); ++i){
+      if(!crew.get(i).isDead()){
+        numberOfAlivePirates++;
+      }
+    }
+    boolean readyToFight = true;
+    if(crew.get(0).isDead()){
+      readyToFight = false;
+    }else{
+      readyToFight = !crew.get(0).isSleeping();
+    }
+    return "The captain drank " + crew.get(0).getMountOfRum() + " mount rum and ready to fight: " + readyToFight + ", " + numberOfAlivePirates + " pirate alive" ;
   }
 
   public static void main(String[] args) {
     Ship ship = new Ship();
+    ship.fillShip();
     System.out.println(ship.toString());
   }
 }

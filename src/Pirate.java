@@ -7,21 +7,21 @@ public class Pirate {
 
   public Pirate() {
     this.name = "Jack";
-    this.age = -1;
+    this.age = 16;
     this.mountOfRum = 0;
     this.isWoodenLeged = this.isSleeping = this.isDead = false;
   }
 
   public Pirate(String name) {
     this.name = name;
-    this.age = -1;
+    this.age = 16;
     this.mountOfRum = 0;
     this.isWoodenLeged = this.isSleeping = this.isDead = false;
   }
 
   public Pirate(String name, Boolean isWoodenLeged) {
     this.name = name;
-    this.age = -1;
+    this.age = 16;
     this.mountOfRum = 0;
     this.isWoodenLeged = isWoodenLeged;
     this.isSleeping = this.isDead = false;
@@ -46,6 +46,14 @@ public class Pirate {
 
   public void setSleeping(boolean sleeping) {
     isSleeping = sleeping;
+  }
+
+  public boolean isDead() {
+    return isDead;
+  }
+
+  public int getMountOfRum() {
+    return mountOfRum;
   }
 
   public String howsItGoingMate(){
