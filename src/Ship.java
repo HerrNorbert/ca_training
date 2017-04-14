@@ -43,9 +43,31 @@ public class Ship {
     return "The captain drank " + crew.get(0).getMountOfRum() + " mount rum and ready to fight: " + readyToFight + ", " + numberOfAlivePirates + " pirate alive" ;
   }
 
+  public boolean battle(Ship otherShip){
+    int ourScore, theirScore;
+    ourScore = theirScore = 0;
+    ourScore -= crew.get(0).getMountOfRum();
+    theirScore -= otherShip.crew.get(0).getMountOfRum();
+    for (int i = 1; i< crew.size();i++){
+      if(!crew.get(i).isDead()){
+        ourScore++;
+      }
+    }
+    for (int i = 1; i < otherShip.crew.size();i++){
+      if(!otherShip.crew.get(i).isDead()){
+        theirScore++;
+      }
+    }
+    return ourScore >= theirScore;
+  }
+
   public static void main(String[] args) {
     Ship ship = new Ship();
+    Ship ship2 = new Ship();
     ship.fillShip();
+    ship2.fillShip();
     System.out.println(ship.toString());
+    System.out.println(ship2.toString());
+    System.out.println("We wont: " + ship.battle(ship2));
   }
 }
