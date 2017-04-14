@@ -2,7 +2,7 @@
 public class Pirate {
   private String name;
   private int age, mountOfRum;
-  private Boolean isWoodenLeged, isSleeping, isDead;
+  private boolean isWoodenLeged, isSleeping, isDead;
 
   public Pirate() {
     this.name = "Jack";
@@ -50,6 +50,10 @@ public class Pirate {
     }
   }
 
+  public boolean die(){
+    return isDead = true;
+  }
+
   @Override
   public String toString() {
     return "Pirate{" +
@@ -64,12 +68,13 @@ public class Pirate {
 
   public static void main(String[] args) {
     Pirate pirate = new Pirate();
-    System.out.println(pirate.toString());
-    for (int i = 0; i < 5; ++i ){
-      pirate.drinkSomeRum();
-    }
-    System.out.println(pirate.toString());
-    System.out.println(pirate.howsItGoingMate());
+//    System.out.println(pirate.toString());
+//    for (int i = 0; i < 5; ++i ){
+//      pirate.drinkSomeRum();
+//    }
+//    System.out.println(pirate.toString());
+//    System.out.println(pirate.howsItGoingMate());
+    pirate.die();
     System.out.println(pirate.toString());
   }
 }
