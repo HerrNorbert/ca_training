@@ -61,6 +61,25 @@ public class Ship {
     return ourScore >= theirScore;
   }
 
+  public void afterBattle(Ship otherShip, boolean weWon){
+    int deaths = 0;
+    if(weWon){
+      deaths = ((int) (Math.random() * otherShip.crew.size() - 1 )) + 1;
+      for(int i = 1; i <= deaths; ++i){
+        otherShip.crew.get(i).die();
+        crew.get(0).drinkSomeRum();
+        crew.get((int) (Math.random() * crew.size() - 1)+1).drinkSomeRum();
+      }
+    } else {
+      deaths = ((int) (Math.random() * crew.size() - 1 )) + 1;
+      for(int i = 1; i <= deaths; ++i){
+        crew.get(i).die();
+        otherShip.crew.get(0).drinkSomeRum();
+        otherShip.crew.get((int) (Math.random() * otherShip.crew.size() - 1)+1).drinkSomeRum();
+      }
+    }
+  }
+
   public static void main(String[] args) {
     Ship ship = new Ship();
     Ship ship2 = new Ship();
@@ -68,6 +87,10 @@ public class Ship {
     ship2.fillShip();
     System.out.println(ship.toString());
     System.out.println(ship2.toString());
-    System.out.println("We wont: " + ship.battle(ship2));
+    boolean weWon = ship.battle(ship2);
+    System.out.println("We wont: " + weWon);
+    ship.afterBattle(ship2,weWon);
+    System.out.println(ship.toString());
+    System.out.println(ship2.toString());
   }
 }
