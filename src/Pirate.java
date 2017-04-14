@@ -90,19 +90,4 @@ public class Pirate {
             ", isDead=" + isDead +
             '}';
   }
-
-  public static void main(String[] args) {
-    Pirate pirate = new Pirate();
-    Pirate pirate2 = new Pirate();
-//    System.out.println(pirate.toString());
-//    for (int i = 0; i < 5; ++i ){
-//      pirate.drinkSomeRum();
-//    }
-//    System.out.println(pirate.toString());
-//    System.out.println(pirate.howsItGoingMate());
-//    pirate.die();
-    System.out.println(pirate.toString());
-    System.out.println(pirate2.toString());
-    System.out.println(pirate.brawl(pirate2));
-  }
 }
