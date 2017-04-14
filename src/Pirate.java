@@ -1,10 +1,14 @@
 
 public class Pirate {
-  String name;
-  int age, mountOfRum;
-  Boolean isWoodenLeged, isSleeping, isDead;
+  private String name;
+  private int age, mountOfRum;
+  private Boolean isWoodenLeged, isSleeping, isDead;
 
   public Pirate() {
+    this.name = "Jack";
+    this.age = -1;
+    this.mountOfRum = 0;
+    this.isWoodenLeged = this.isSleeping = this.isDead = false;
   }
 
   public Pirate(String name) {
@@ -31,8 +35,41 @@ public class Pirate {
     this.isDead = isDead;
   }
 
+  public int drinkSomeRum(){
+    return ++mountOfRum;
+  }
+
+  public String howsItGoingMate(){
+    if(mountOfRum < 5){
+      return "Pour me anudder!";
+    }
+    else {
+      isSleeping = true;
+      mountOfRum = 0;
+      return "Arghh, I'ma Pirate. How d'ya d'ink its goin?";
+    }
+  }
+
+  @Override
+  public String toString() {
+    return "Pirate{" +
+            "name='" + name + '\'' +
+            ", age=" + age +
+            ", mountOfRum=" + mountOfRum +
+            ", isWoodenLeged=" + isWoodenLeged +
+            ", isSleeping=" + isSleeping +
+            ", isDead=" + isDead +
+            '}';
+  }
+
   public static void main(String[] args) {
     Pirate pirate = new Pirate();
-    System.out.println("You have created a pirate!");
+    System.out.println(pirate.toString());
+    for (int i = 0; i < 5; ++i ){
+      pirate.drinkSomeRum();
+    }
+    System.out.println(pirate.toString());
+    System.out.println(pirate.howsItGoingMate());
+    System.out.println(pirate.toString());
   }
 }
