@@ -1,3 +1,4 @@
+import java.util.Random;
 
 public class Pirate {
   private String name;
@@ -39,6 +40,14 @@ public class Pirate {
     return ++mountOfRum;
   }
 
+  public boolean isSleeping() {
+    return isSleeping;
+  }
+
+  public void setSleeping(boolean sleeping) {
+    isSleeping = sleeping;
+  }
+
   public String howsItGoingMate(){
     if(mountOfRum < 5){
       return "Pour me anudder!";
@@ -52,6 +61,22 @@ public class Pirate {
 
   public boolean die(){
     return isDead = true;
+  }
+
+  public int brawl(Pirate enemy){
+    if(!enemy.isDead){
+      int fortuna = (int) (Math.random() * 3);
+      if(fortuna == 1){
+        enemy.die();
+      } else if(fortuna == 2){
+        die();
+      } else {
+        enemy.setSleeping(true);
+        setSleeping(true);
+      }
+      return fortuna;
+    }
+    return 1;
   }
 
   @Override
@@ -68,13 +93,16 @@ public class Pirate {
 
   public static void main(String[] args) {
     Pirate pirate = new Pirate();
+    Pirate pirate2 = new Pirate();
 //    System.out.println(pirate.toString());
 //    for (int i = 0; i < 5; ++i ){
 //      pirate.drinkSomeRum();
 //    }
 //    System.out.println(pirate.toString());
 //    System.out.println(pirate.howsItGoingMate());
-    pirate.die();
+//    pirate.die();
     System.out.println(pirate.toString());
+    System.out.println(pirate2.toString());
+    System.out.println(pirate.brawl(pirate2));
   }
 }
