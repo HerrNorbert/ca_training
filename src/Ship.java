@@ -88,7 +88,7 @@ public class Ship {
     System.out.println(ship.toString());
     System.out.println(ship2.toString());
     boolean weWon = ship.battle(ship2);
-    System.out.println("We wont: " + weWon);
+    System.out.println("We won: " + weWon);
     ship.afterBattle(ship2,weWon);
     System.out.println(ship.toString());
     System.out.println(ship2.toString());
